@@ -15,26 +15,7 @@ import (
 
 var prefix = ""
 
-var env = make(map[string]string)
-
-func init() {
-	for _, pair := range os.Environ() {
-		key, val, ok := strings.Cut(pair, "=")
-		if !ok {
-			continue
-		}
-		env[strings.ToLower(key)] = val
-	}
-}
-
 // SetPrefix adds a prefix to all keys used to set values.
-//
-// Running this:
-//
-//	SetPrefix("foo_")
-//	String(&s, "mystr")
-//
-// Will set `s` to the value of the environment variable `foo_mystr` (case insensitive).
 func SetPrefix(s string) {
 	prefix = strings.ToLower(s)
 }
