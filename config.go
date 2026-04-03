@@ -71,8 +71,8 @@ func Text(p encoding.TextUnmarshaler, key string) error {
 	return setValue(textValue{p}, key)
 }
 
-// Arg sets a [flag.Value] from an environment variable.
-func Arg(value flag.Value, key string) error {
+// Value sets a [flag.Value] from an environment variable.
+func Value(value flag.Value, key string) error {
 	return setValue(value, key)
 }
 
